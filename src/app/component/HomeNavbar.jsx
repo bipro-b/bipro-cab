@@ -11,7 +11,7 @@ function HomeNavbar() {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <div className="flex items-center mx-5">
-              <img src="" alt="logo" />
+              <img src="https://s3-ap-southeast-1.amazonaws.com/ola-prod-website/logo.png" alt="logo" />
             </div>
             <div>
               <ul className="flex items-center">
