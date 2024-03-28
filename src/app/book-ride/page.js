@@ -1,6 +1,6 @@
 import React from 'react'
-import Layout from '../component/user/Layout/Layout'
 import BookRide from './BookRide'
+import Layout from '@/component/user/Layout/Layout'
 function page() {
   return (
     <div>
