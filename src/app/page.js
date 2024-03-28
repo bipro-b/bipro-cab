@@ -1,8 +1,8 @@
 import Image from "next/image";
-import HomeNavbar from "./component/HomeNavbar";
-import Banner from "./component/Banner";
-import CardVideoSection from "./component/CardVideoSection";
-import Footer from "./component/Footer";
+import HomeNavbar from "./component/user/HomePage/HomeNavbar";
+import Banner from "./component/user/HomePage/Banner";
+import CardVideoSection from "./component/user/HomePage/CardVideoSection";
+import Footer from "./component/user/HomePage/Footer";
 
 export default function Home() {
   return (
