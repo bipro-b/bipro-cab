@@ -98,7 +98,7 @@ const [activeField, setActiveField] = useState('');
               />
               {activeField === "destinationLocation" &&
 
-                formik.values.destinationLocation && (
+                formik.values?.destinationLocation?.length>0 && (
                   <div className="">
                   <div className="">
                     <SearchResult
