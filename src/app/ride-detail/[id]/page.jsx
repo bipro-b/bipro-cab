@@ -9,7 +9,7 @@ function page(props) {
         console.log("props"+props)
     })
   return (
-    <Layout Children={<RideDetails/>} />
+    <Layout Children={<RideDetails  />} />
   )
 }
 
