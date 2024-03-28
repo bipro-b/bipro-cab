@@ -1,8 +1,11 @@
 import React from 'react'
-
+import Layout from '../component/user/Layout/Layout'
+import BookRide from './BookRide'
 function page() {
   return (
-    <div>book ride</div>
+    <div>
+      <Layout Children={<BookRide/>} ></Layout>
+    </div>
   )
 }
 
