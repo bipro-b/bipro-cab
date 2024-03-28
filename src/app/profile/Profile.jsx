@@ -32,7 +32,11 @@ function Profile() {
         <div className="border rounded-sm mt-5">
           <RideCard />
           <div className="flex flex-col items-center p-3">
-            <Button variant="text" color="secondary">
+            <Button
+              variant="text"
+              onClick={() => router.push("/your-rides")}
+              color="secondary"
+            >
               See all rides
             </Button>
           </div>
@@ -53,12 +57,16 @@ function Profile() {
             <WifiIcon className="text-green-600" />
             <p className="ml-4">Ola Wifi</p>
           </div>
+        </div>
 
-          <div>
-            <Button className="w-full bg-red-500 " variant='contained' color='error'>
+        <div>
+          <Button
+            className="w-full bg-red-500 "
+            variant="contained"
+            color="error"
+          >
             Logout
-            </Button>
-          </div>
+          </Button>
         </div>
       </div>
     </div>
