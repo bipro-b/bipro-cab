@@ -104,7 +104,6 @@ function RideDetails() {
             {
                 true?(
                     <Button
-                    className="bg-green-400"
                     variant="contained"
                     color="secondary"
                     sx={{
