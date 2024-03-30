@@ -33,7 +33,7 @@ function Register() {
   const formik = useFormik({
     initialValues: {
       userName:"",
-      useEmail: "",
+      userEmail: "",
       userPassword: "",
       userRole:"",
       userMobile:"+880 "
@@ -46,7 +46,7 @@ function Register() {
   });
 
   useEffect(() => {
-    console.log("jwt ", jwt);
+    console.log("jwt: ", jwt);
     if (jwt) {
       dispatch(getUser(jwt));
     }
@@ -54,7 +54,7 @@ function Register() {
 
   // useEffect(()=>{
   //   if(auth.user?.userName||auth.user?.name){
-  //     router.push("/")
+  //     router.push("/book-ride")
   //   }
   // },[auth.user])
 
@@ -79,6 +79,7 @@ function Register() {
           margin="normal"
           name="userName"
           value={formik.values.userName}
+          onChange={formik.handleChange}
           error={formik.touched.userName && formik.errors.userName}
           helperText={formik.touched.userName && formik.errors.userName}
         ></TextField>
@@ -91,6 +92,7 @@ function Register() {
           margin="normal"
           name="userEmail"
           value={formik.values.userEmail}
+          onChange={formik.handleChange}
           error={formik.touched.useEmail && formik.errors.useEmail}
           helperText={formik.touched.useEmail && formik.errors.useEmail}
         ></TextField>
@@ -103,6 +105,8 @@ function Register() {
           margin="normal"
           name="userPassword"
           value={formik.values.userPassword}
+          onChange={formik.handleChange}
+
           error={formik.touched.userPassword && formik.errors.userPassword}
           helperText={formik.touched.userPassword && formik.errors.userPassword}
         ></TextField>
@@ -114,6 +118,7 @@ function Register() {
           margin="normal"
           name="userRole"
           value={formik.values.userRole}
+          onChange={formik.handleChange}
           error={formik.touched.userRole && formik.errors.userRole}
           helperText={formik.touched.userRole && formik.errors.userRole}
         ></TextField>
@@ -125,6 +130,7 @@ function Register() {
           margin="normal"
           name="userMobile"
           value={formik.values.userMobile}
+          onChange={formik.handleChange}
          
         ></TextField>
 

@@ -52,7 +52,7 @@ export const loginUser = (userData) => async (dispatch) => {
 
 export const getUser = (token) => {
   return async (dispatch) => {
-    console.log("ger user ", token);
+    console.log("get user ", token);
     dispatch({ type: GET_USER_REQUEST });
     try {
       const response = await axios.get(`${API_BASE_URL}/profile`, {

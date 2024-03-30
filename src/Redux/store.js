@@ -1,6 +1,5 @@
 import { thunk } from 'redux-thunk';
 import authReducer from './Auth/Reducer.js'
-
 const {legacy_createStore, combineReducers, applyMiddleware} = require("redux");
 
 
