@@ -50,7 +50,7 @@ export const loginUser = (userData) => async (dispatch) => {
   }
 };
 
-export const gerUser = (token) => {
+export const getUser = (token) => {
   return async (dispatch) => {
     console.log("ger user ", token);
     dispatch({ type: GET_USER_REQUEST });

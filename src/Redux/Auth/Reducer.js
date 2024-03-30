@@ -13,7 +13,7 @@ import {
   } from "./ActionTypes";
 
   const initialState ={
-    User:null,
+    user:'',
     isLoading:false,
     error:null
   }
