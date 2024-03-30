@@ -36,15 +36,36 @@ const loginRequest = () => ({ type: LOGIN_REQUEST });
 const loginSuccess = () => ({ type: LOGIN_SUCCESS, payload: user });
 const loginFailure = () => ({ type: LOGIN_FAILURE, payload: error });
 
+// export const loginUser = (userData) => async (dispatch) => {
+//   dispatch(loginRequest());
+//   try {
+//     const response = await axios.post(`${API_BASE_URL}/sign-in`, userData);
+//     const user = response.data;
+//     if (user.access_token)
+//       localStorage.setItem("access_token", user.access_token);
+//     console.log("login: ", user);
+//     dispatch(loginSuccess(user));
+//   } catch (error) {
+//     dispatch(loginFailure(error.message));
+//   }
+// };
+
 export const loginUser = (userData) => async (dispatch) => {
   dispatch(loginRequest());
   try {
-    const response = await axios.post(`${API_BASE_URL}/sign-in`, userData);
+    const response = await axios.post(`${API_BASE_URL}/sign-in`, null, {
+      headers: {
+        Authorization: `Basic ${btoa(`${userData.userEmail}:${userData.userPassword}`)}`
+      }
+    });
     const user = response.data;
-    if (user.access_token)
+    if (user.access_token) {
       localStorage.setItem("access_token", user.access_token);
-    console.log("login: ", user);
-    dispatch(loginSuccess(user));
+      console.log("login: ", user);
+      dispatch(loginSuccess(user));
+    } else {
+      dispatch(loginFailure("Access token not found"));
+    }
   } catch (error) {
     dispatch(loginFailure(error.message));
   }

@@ -35,8 +35,8 @@ function Login() {
 
   useEffect(() => {
     if (auth.user) {
-      // Redirect user after successful login
-      router.push("/dashboard"); // Change this to the appropriate route
+      
+      router.push("/book-drive"); 
     }
   }, [auth.user, router]);
 
@@ -81,9 +81,9 @@ function Login() {
         />
 
         <Button
-          sx={{ padding: ".9rem 0rem" }}
+          sx={{ padding: ".9rem 0rem"}}
           variant="contained"
-          className="z-10 w-full"
+          className="z-10 w-full bg-blue-500"
           type="submit"
           color="secondary"
         >
