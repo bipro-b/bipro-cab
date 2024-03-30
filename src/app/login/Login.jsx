@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import WestIcon from "@mui/icons-material/West";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { loginUser } from "@/Redux/Auth/Action";
+import { getUser, loginUser } from "@/Redux/Auth/Action";
 import { Button, TextField } from "@mui/material";
 
 const validationSchema = yup.object().shape({
@@ -20,6 +20,7 @@ function Login() {
     router.back();
   };
 
+  const jwt = localStorage.getItem("access_token");
   const { auth } = useSelector((store) => store);
 
   const formik = useFormik({
@@ -32,11 +33,18 @@ function Login() {
       dispatch(loginUser(values));
     },
   });
-
   useEffect(() => {
-    if (auth.user) {
+    console.log("jwt: ", jwt);
+    if (jwt) {
+      dispatch(getUser(jwt));
+    }
+  }, [jwt]);
+
+  console.log("user:::",auth.user);
+  useEffect(() => {
+    if (auth.user?.userName) {
       
-      router.push("/book-drive"); 
+      router.push("/book-ride"); 
     }
   }, [auth.user, router]);
 

@@ -15,8 +15,8 @@ import {
 import { API_BASE_URL } from "@/config/api";
 
 const registerRequest = () => ({ type: REGISTER_REQUEST });
-const registerSuccess = () => ({ type: REGISTER_SUCCESS, payload: user });
-const registerFailure = () => ({ type: REGISTER_FAILURE, payload: error });
+const registerSuccess = (user) => ({ type: REGISTER_SUCCESS, payload: user });
+const registerFailure = (error) => ({ type: REGISTER_FAILURE, payload: error });
 
 export const registerUser = (userData) => async (dispatch) => {
   dispatch(registerRequest());
@@ -33,8 +33,8 @@ export const registerUser = (userData) => async (dispatch) => {
 };
 
 const loginRequest = () => ({ type: LOGIN_REQUEST });
-const loginSuccess = () => ({ type: LOGIN_SUCCESS, payload: user });
-const loginFailure = () => ({ type: LOGIN_FAILURE, payload: error });
+const loginSuccess = (user) => ({ type: LOGIN_SUCCESS, payload: user });
+const loginFailure = (error) => ({ type: LOGIN_FAILURE, payload: error });
 
 // export const loginUser = (userData) => async (dispatch) => {
 //   dispatch(loginRequest());
@@ -73,19 +73,19 @@ export const loginUser = (userData) => async (dispatch) => {
 
 export const getUser = (token) => {
   return async (dispatch) => {
-    console.log("get user ", token);
+    // console.log("get user ", token);
     dispatch({ type: GET_USER_REQUEST });
     try {
-      const response = await axios.get(`${API_BASE_URL}/profile`, {
+      const response = await axios.get(`${API_BASE_URL}/api/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
       const user = response.data;
-
+      // console.log("after actions",user.userName)
       dispatch({ type: GET_USER_SUCCESS, payload: user });
-      console.log("req user", user);
+      // console.log("req user", user);
     } catch (error) {
       const errorMessage = error.message;
       dispatch({ type: GET_USER_FAILURE, payload: errorMessage });

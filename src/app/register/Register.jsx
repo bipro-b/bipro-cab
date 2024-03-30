@@ -26,9 +26,8 @@ function Register() {
 
 
   const jwt = localStorage.getItem("access_token");
-  const {auth} = useSelector((store)=>store)
-
-
+  const {auth} = useSelector((store)=>store);
+  
   
   const formik = useFormik({
     initialValues: {
@@ -52,11 +51,15 @@ function Register() {
     }
   }, [jwt]);
 
-  // useEffect(()=>{
-  //   if(auth.user?.userName||auth.user?.name){
-  //     router.push("/book-ride")
-  //   }
-  // },[auth.user])
+
+    useEffect(()=>{
+      if(auth.user?.userName){
+        router.push("/book-ride")
+        console.log("user name:",auth.user?.userName);
+      }
+    },[auth.user])
+
+  
 
   return (
     <div className="py-10">
